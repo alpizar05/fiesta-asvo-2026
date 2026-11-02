@@ -1,7 +1,9 @@
 import {NextRequest,NextResponse} from "next/server";
 import {backend} from "@/lib/backend";
+import {isRegistrationClosed,REGISTRATION_CLOSED_ERROR} from "@/lib/registration";
 export const runtime="nodejs";
 export async function POST(req:NextRequest){
+ if(isRegistrationClosed())return NextResponse.json({error:REGISTRATION_CLOSED_ERROR},{status:410});
  try{
   const form=await req.formData();
   const file=form.get("receipt");
@@ -31,5 +33,9 @@ export async function POST(req:NextRequest){
    return NextResponse.json({error:"Revisá los datos obligatorios."},{status:400});
   const result=await backend("register",{data});
   return NextResponse.json({ok:true,id:result.id});
- }catch(e){return NextResponse.json({error:e instanceof Error?e.message:"Error inesperado"},{status:500});}
+ }catch(e){
+  const message=e instanceof Error?e.message:"Error inesperado";
+  if(message.startsWith("Las inscripciones cerraron el 30 de noviembre"))return NextResponse.json({error:message},{status:410});
+  return NextResponse.json({error:message},{status:500});
+ }
 }
