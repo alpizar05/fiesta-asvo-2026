@@ -19,6 +19,7 @@ export default function Home() {
   const [status, setStatus] = useState('');
   const [code, setCode] = useState('');
   const [closed, setClosed] = useState(false);
+  const [receiptName, setReceiptName] = useState('');
 
   useEffect(() => {
     const update = () => setClosed(isRegistrationClosed());
@@ -102,7 +103,7 @@ export default function Home() {
         <h2>
           Momentos que <em>nos unen.</em>
         </h2>
-        <p>Desde las aulas hasta el bosque y el mar: ¡este encuentro es para ustedes!</p>
+        <p>Desde las aulas hasta el bosque y el mar: ¡esta fiesta es para ustedes!</p>
         <div className='grid'>
           {photos.map(([file, title]) => (
             <figure key={file}>
@@ -159,6 +160,10 @@ export default function Home() {
               <p className='legal'>
                 <b>Titular:</b> Maria José Castro Cerdas
               </p>
+              <p>
+                Para agilizar la verificación del pago, escribí tu nombre
+                completo en el detalle o asunto del SINPE Móvil.
+              </p>
             </div>
 
             <div className='formbox'>
@@ -204,17 +209,29 @@ export default function Home() {
                       <span>SINPE Móvil</span>
                     </label>
                     <label>
-                      Referencia del pago *
+                      Referencia del pago (detalle o asunto del SINPE) *
                       <input name='reference' required maxLength={100} />
                     </label>
                     <label>
                       Comprobante de pago *
-                      <input
-                        name='receipt'
-                        type='file'
-                        accept='.jpg,.jpeg,.png,.pdf'
-                        required
-                      />
+                      <span className='file-control'>
+                        <input
+                          className='file-input'
+                          name='receipt'
+                          type='file'
+                          accept='.jpg,.jpeg,.png,.pdf'
+                          required
+                          onChange={(e) =>
+                            setReceiptName(e.target.files?.[0]?.name ?? '')
+                          }
+                        />
+                        <span className='file-button' aria-hidden='true'>
+                          Seleccionar archivo
+                        </span>
+                        <span className='file-name' aria-live='polite'>
+                          {receiptName || 'Ningún archivo seleccionado'}
+                        </span>
+                      </span>
                       <small>JPG, PNG o PDF · Máximo 4 MB</small>
                     </label>
                     <label className='check'>

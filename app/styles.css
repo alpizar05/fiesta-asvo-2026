@@ -332,13 +332,50 @@ header a {
   font-weight: 800;
 }
 
-.formbox input:not([type='checkbox']),
+.formbox input:not([type='checkbox']):not([type='file']),
 .formbox select {
   width: 100%;
   padding: 14px;
   border: 1px solid #cadbd3;
   border-radius: 10px;
   font: inherit;
+}
+
+.file-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  font-weight: 400;
+}
+
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.file-input:focus-visible + .file-button {
+  outline: 3px solid #087e69;
+  outline-offset: 3px;
+}
+
+.file-button {
+  flex: 0 0 auto;
+  padding: 10px 14px;
+  border: 1px solid #cadbd3;
+  border-radius: 10px;
+  background: #e6f8ed;
+}
+
+.file-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #66776c;
 }
 
 .formbox label small {
