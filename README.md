@@ -4,9 +4,9 @@ Invitación tropical interactiva, inscripción de personas voluntarias, comproba
 
 - **Evento:** sábado 5 de diciembre de 2026, 2:00 p. m. – 8:00 p. m.
 - **Lugar:** La FOS (Oficina de ASVO)
-- **Cuota:** ₡5.000; SINPE Móvil 8843-2327; Banco Nacional IBAN CR16015100010012210664.
+- **Cuota:** ₡5.000; pago únicamente por SINPE Móvil al 8967 0829.
 - **Inscripciones:** hasta el 30 de noviembre de 2026 inclusive (hora de Costa Rica); después se cierra el formulario, pero el panel sigue disponible para revisar pagos pendientes.
-- **Titular:** Asociación de Voluntarios para el Servicio en las Áreas Protegidas, cédula jurídica 3-002-098217.
+- **Titular del SINPE Móvil:** Maria José Castro Cerdas.
 - **Subdominio propuesto:** fiesta.asvocr.org (DNS en GoDaddy, alojamiento Vercel).
 - **Administrador inicial:** asvoorg@gmail.com; posibilidad de agregar administradores y revisores.
 

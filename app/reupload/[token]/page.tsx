@@ -1,3 +1,56 @@
 'use client';
-import {useState} from 'react';
-export default function Reupload({params}:{params:{token:string}}){const [status,setStatus]=useState('');async function send(e:React.FormEvent<HTMLFormElement>){e.preventDefault();setStatus('Enviando…');try{const r=await fetch('/api/reupload/'+encodeURIComponent(params.token),{method:'POST',body:new FormData(e.currentTarget)});const j=await r.json();if(!r.ok)throw Error(j.error);setStatus('success')}catch(e){setStatus(e instanceof Error?e.message:'Error')}}return <div className='login'><h1>📎 Actualizar comprobante</h1>{status==='success'?<p>¡Recibimos tu nuevo comprobante! Queda pendiente de revisión.</p>:<form onSubmit={send}><p>Adjuntá el nuevo comprobante de pago para tu inscripción ASVO.</p><input name='receipt' type='file' accept='.jpg,.jpeg,.png,.pdf' required/><p>Máximo 4 MB · JPG, PNG o PDF</p><button className='cta' type='submit' disabled={status==='Enviando…'}>Enviar comprobante</button>{status&&<p role='alert'>{status}</p>}</form>}</div>}
+
+import { useState } from 'react';
+
+export default function Reupload({ params }: { params: { token: string } }) {
+  const [status, setStatus] = useState('');
+
+  async function send(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('Enviando…');
+
+    try {
+      const r = await fetch(
+        '/api/reupload/' + encodeURIComponent(params.token),
+        {
+          method: 'POST',
+          body: new FormData(e.currentTarget),
+        },
+      );
+      const j = await r.json();
+
+      if (!r.ok) throw Error(j.error);
+      setStatus('success');
+    } catch (e) {
+      setStatus(e instanceof Error ? e.message : 'Error');
+    }
+  }
+
+  return (
+    <div className='login'>
+      <h1>📎 Actualizar comprobante</h1>
+      {status === 'success' ? (
+        <p>¡Recibimos tu nuevo comprobante! Queda pendiente de revisión.</p>
+      ) : (
+        <form onSubmit={send}>
+          <p>Adjuntá el nuevo comprobante de pago para tu inscripción ASVO.</p>
+          <input
+            name='receipt'
+            type='file'
+            accept='.jpg,.jpeg,.png,.pdf'
+            required
+          />
+          <p>Máximo 4 MB · JPG, PNG o PDF</p>
+          <button
+            className='cta'
+            type='submit'
+            disabled={status === 'Enviando…'}
+          >
+            Enviar comprobante
+          </button>
+          {status && <p role='alert'>{status}</p>}
+        </form>
+      )}
+    </div>
+  );
+}
