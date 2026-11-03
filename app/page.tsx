@@ -7,7 +7,7 @@ const photos = [
   ['covirenas.jpg', 'COVIRENAS'],
   ['brif.jpg', 'BRIF'],
   ['uea.jpg', 'Educación Ambiental'],
-  ['montezuma.jpg', 'Montezuma'],
+  ['montezuma.png', 'Montezuma'],
   ['tortuguero.jpg', 'Tortuguero'],
   ['general.jpeg', 'Voluntariado general'],
 ];
