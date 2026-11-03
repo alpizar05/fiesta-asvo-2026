@@ -209,8 +209,9 @@ export default function Home() {
                       <span>SINPE Móvil</span>
                     </label>
                     <label>
-                      Referencia del pago (detalle o asunto del SINPE) *
+                      Número de referencia *
                       <input name='reference' required maxLength={100} />
+                      <small>La proporciona el banco al realizar la transacción.</small>
                     </label>
                     <label>
                       Comprobante de pago *

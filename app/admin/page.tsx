@@ -165,7 +165,7 @@ function Panel() {
                   'Correo',
                   'Teléfono',
                   'Método',
-                  'Referencia',
+                  'Número de referencia',
                   'Estado',
                   'Motivo',
                 ],
@@ -229,7 +229,7 @@ function Panel() {
                   </td>
                   <td>
                     {r.method}
-                    <small>{r.reference}</small>
+                    <small>N.º de referencia: {r.reference}</small>
                   </td>
                   <td>
                     <span className={'badge ' + r.status}>
