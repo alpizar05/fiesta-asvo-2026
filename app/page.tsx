@@ -6,17 +6,10 @@ import { isRegistrationClosed, REGISTRATION_CUTOFF } from '@/lib/registration';
 const photos = [
   ['covirenas.jpg', 'COVIRENAS'],
   ['brif.jpg', 'BRIF'],
-<<<<<<< HEAD
   ['uea.jpg', 'Educación Ambiental'],
   ['montezuma.jpg', 'Montezuma'],
   ['tortuguero.jpg', 'Tortuguero'],
   ['general.jpeg', 'Voluntariado general'],
-=======
-  ['uea.jpg', 'UEA · Stop Animal Selfies'],
-  ['montezuma.jpg', 'Montezuma'],
-  ['tortuguero.jpg', 'Tortuguero'],
-  ['reforestacion.jpg', 'Voluntariado general'],
->>>>>>> main
 ];
 
 const closedMessage =
