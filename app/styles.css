@@ -520,9 +520,14 @@ td a {
 }
 
 @media (max-width: 850px) {
-  .hero,
-  .register {
+  .hero {
     grid-template-columns: 1fr;
+  }
+
+  .register {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
   }
 
   .hero {
@@ -543,6 +548,11 @@ td a {
 }
 
 @media (max-width: 520px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .hero h1 {
     font-size: 62px;
   }
