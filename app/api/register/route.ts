@@ -29,7 +29,7 @@ export async function POST(req:NextRequest){
    receipt:{name:file.name.slice(0,130),type:file.type,base64:buf.toString("base64")}
   };
   if(data.website)return NextResponse.json({ok:true,message:"Recibido"});
-  if(!data.name||!data.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)||data.phone.length<8||!["SINPE","TRANSFERENCIA"].includes(data.method)||!data.reference||!data.volunteer||!data.consent)
+  if(!data.name||!data.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)||data.phone.length<8||data.method!=="SINPE"||!data.reference||!data.volunteer||!data.consent)
    return NextResponse.json({error:"Revisá los datos obligatorios."},{status:400});
   const result=await backend("register",{data});
   return NextResponse.json({ok:true,id:result.id});
