@@ -87,7 +87,7 @@ export default function Home() {
         </div>
         <img
           className='hero-image'
-          src='/photos/hero-grupo.jpg'
+          src='/photos/hero-grupo.png'
           alt='Personas voluntarias ASVO'
         />
       </section>
