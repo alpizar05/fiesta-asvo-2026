@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function Reupload({ params }: { params: { token: string } }) {
   const [status, setStatus] = useState('');
+  const [receiptName, setReceiptName] = useState('');
 
   async function send(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,12 +35,27 @@ export default function Reupload({ params }: { params: { token: string } }) {
       ) : (
         <form onSubmit={send}>
           <p>Adjuntá el nuevo comprobante de pago para tu inscripción ASVO.</p>
-          <input
-            name='receipt'
-            type='file'
-            accept='.jpg,.jpeg,.png,.pdf'
-            required
-          />
+          <label>
+            Comprobante de pago
+            <span className='file-control'>
+              <input
+                className='file-input'
+                name='receipt'
+                type='file'
+                accept='.jpg,.jpeg,.png,.pdf'
+                required
+                onChange={(e) =>
+                  setReceiptName(e.target.files?.[0]?.name ?? '')
+                }
+              />
+              <span className='file-button' aria-hidden='true'>
+                Seleccionar archivo
+              </span>
+              <span className='file-name' aria-live='polite'>
+                {receiptName || 'Ningún archivo seleccionado'}
+              </span>
+            </span>
+          </label>
           <p>Máximo 4 MB · JPG, PNG o PDF</p>
           <button
             className='cta'
