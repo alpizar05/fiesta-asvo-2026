@@ -6,10 +6,10 @@ import { isRegistrationClosed, REGISTRATION_CUTOFF } from '@/lib/registration';
 const photos = [
   ['covirenas.jpg', 'COVIRENAS'],
   ['brif.jpg', 'BRIF'],
-  ['uea.jpg', 'UEA · Stop Animal Selfies'],
-  ['montezuma.jpg', 'Montezuma'],
+  ['uea.jpg', 'Educación Ambiental'],
+  ['montezuma.png', 'Montezuma'],
   ['tortuguero.jpg', 'Tortuguero'],
-  ['reforestacion.jpg', 'Voluntariado general'],
+  ['general.jpeg', 'Voluntariado general'],
 ];
 
 const closedMessage =
@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <main>
       <header>
-        <img src='/logo-asvo.jpg' alt='ASVO' />
+        <img src='/logo-asvo.png' alt='ASVO' />
         <b>FIESTA ASVO 2026</b>
         <a href='#registro'>¡Me apunto! ↗</a>
       </header>
@@ -87,7 +87,7 @@ export default function Home() {
         </div>
         <img
           className='hero-image'
-          src='/photos/hero-grupo.jpg'
+          src='/photos/hero-grupo.png'
           alt='Personas voluntarias ASVO'
         />
       </section>

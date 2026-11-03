@@ -80,7 +80,7 @@ header a {
 .hero:before {
   position: absolute;
   inset: 0;
-  background: url('/fiesta-base.jpg') center/cover;
+  background: url('/fiesta-base.png') center/cover;
   content: '';
   opacity: 0.17;
 }
